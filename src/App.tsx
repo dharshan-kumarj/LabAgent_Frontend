@@ -1,35 +1,65 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import axios from 'axios';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [sourceCode, setSourceCode] = useState('');
+    const [languageId, setLanguageId] = useState('71'); // Python (3.8.1)
+    const [stdin, setStdin] = useState(''); // Sample input
+    const [output, setOutput] = useState('');
+    const [error, setError] = useState('');
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const handleSubmit = async () => {
+        setError(''); // Clear previous errors
+        setOutput(''); // Clear previous output
+        try {
+            console.log('Submitting code...');
+            const response = await axios.post('http://localhost:3001/submit', {
+                sourceCode,
+                languageId,
+                stdin
+            });
+            console.log('Code submitted successfully:', response.data);
+            setOutput(response.data.stdout || response.data.stderr || JSON.stringify(response.data));
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                console.error('Error submitting code:', error.response ? error.response.data : error.message);
+                setError(error.response ? error.response.data.error : 'Failed to submit the code. Please try again.');
+            } else {
+                console.error('Error submitting code:', error);
+                setError('Failed to submit the code. Please try again.');
+            }
+        }
+    };
+
+    return (
+        <div className="App">
+            <div className="left-panel">
+                <h2>Problem Statement</h2>
+                <p>Write a Python program that prints "Hello, World!".</p>
+                <p>Sample Input:</p>
+                <textarea value={stdin} onChange={(e) => setStdin(e.target.value)}></textarea>
+                <p>Sample Output:</p>
+                <pre>Hello, World!</pre>
+            </div>
+            <div className="right-panel">
+                <div className="code-editor">
+                    <h2>Code Editor</h2>
+                    <textarea
+                        value={sourceCode}
+                        onChange={(e) => setSourceCode(e.target.value)}
+                        placeholder="Write your code here..."
+                    ></textarea>
+                    <button onClick={handleSubmit}>Submit</button>
+                </div>
+                <div className="test-results">
+                    <h2>Test Results</h2>
+                    {error && <p className="error">{error}</p>}
+                    <pre>{output}</pre>
+                </div>
+            </div>
+        </div>
+    );
 }
 
-export default App
+export default App;
