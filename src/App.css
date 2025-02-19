@@ -1,72 +1,213 @@
+/* Reset and full-screen setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1e1e1e;  /* Dark background */
+  color: #e0e0e0;  /* Light text color */
+}
+
 .App {
-  max-width: 1200px;
-  margin: 0 auto;
+  min-height: 100vh;
   padding: 20px;
+  background-color: #1e1e1e;
 }
 
 .code-editor {
-  background-color: #f5f5f5;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #252526;  /* Slightly lighter than background */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
+/* Header styling */
+h2 {
+  color: #569cd6;  /* Light blue - similar to VS Code */
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Language selector styling */
+.language-selector {
+  margin-bottom: 20px;
+}
+
+.language-selector label {
+  color: #9cdcfe;  /* Light blue for labels */
+  font-size: 16px;
+}
+
+.language-selector select {
+  background-color: #3c3c3c;
+  color: #e0e0e0;
+  padding: 10px 15px;
+  border: 1px solid #569cd6;
+  border-radius: 6px;
+  margin-left: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+}
+
+.language-selector select:hover {
+  background-color: #4c4c4c;
+}
+
+/* Code input areas */
 .code-input, .stdin-input {
   width: 100%;
-  min-height: 200px;
-  margin: 10px 0;
-  padding: 10px;
-  font-family: 'Courier New', monospace;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  border: 1px solid #3c3c3c;
+  border-radius: 6px;
+  padding: 20px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 15px;
+  line-height: 1.6;
   resize: vertical;
 }
 
-.submit-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  margin: 10px 0;
+.code-input {
+  min-height: 400px;
 }
 
-.submit-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
+.stdin-input {
+  min-height: 120px;
+  margin-top: 10px;
 }
 
-.error-output {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #ffebee;
-  border: 1px solid #ffcdd2;
-  border-radius: 4px;
+.code-input:focus, .stdin-input:focus {
+  border-color: #569cd6;
+  outline: none;
 }
 
-.code-output {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #e8f5e9;
-  border: 1px solid #c8e6c9;
-  border-radius: 4px;
-}
-
-pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  margin: 0;
-  font-family: 'Courier New', monospace;
-}
-
+/* Input section styling */
 .input-section {
   margin: 20px 0;
 }
 
-h2, h3 {
-  color: #333;
+.input-section h3 {
+  color: #9cdcfe;
   margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Button styling */
+.submit-button {
+  background-color: #569cd6;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin: 20px 0;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #4e8cc7;
+}
+
+.submit-button:disabled {
+  background-color: #4c4c4c;
+  cursor: not-allowed;
+}
+
+/* Status message styling */
+.status-message {
+  background-color: #2d2d2d;
+  border: 1px solid #569cd6;
+  color: #9cdcfe;
+  padding: 15px;
+  border-radius: 6px;
+  margin: 15px 0;
+}
+
+/* Output areas */
+.error-output, .code-output {
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 6px;
+  background-color: #2d2d2d;
+}
+
+.error-output {
+  border-left: 4px solid #f14c4c;  /* Subtle red border */
+}
+
+.code-output {
+  border-left: 4px solid #6a9955;  /* Subtle green border */
+}
+
+.error-output h3, .code-output h3 {
+  color: #9cdcfe;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Output text styling */
+pre {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #d4d4d4;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 10px;
+  background-color: #1e1e1e;
+  border-radius: 4px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3c3c3c;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4c4c4c;
+}
+
+/* Placeholder text styling */
+::placeholder {
+  color: #6c6c6c;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .App {
+      padding: 10px;
+  }
+  
+  .code-editor {
+      padding: 15px;
+  }
+  
+  .code-input {
+      min-height: 300px;
+  }
+  
+  .language-selector select {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 10px;
+  }
 }

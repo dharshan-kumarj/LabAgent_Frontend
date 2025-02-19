@@ -3,24 +3,76 @@ import axios from 'axios';
 import './App.css';
 
 interface JudgeResponse {
-    stdout: string | null;
-    stderr: string | null;
-    compile_output: string | null;
-    message: string | null;
-    status: {
-        id: number;
-        description: string;
+    result: {
+        stdout: string | null;
+        stderr: string | null;
+        compile_output: string | null;
+        message: string | null;
+        status: {
+            id: number;
+            description: string;
+        };
     };
 }
 
+interface Language {
+    id: string;
+    name: string;
+    fileExtension: string;
+    defaultTemplate: string;
+}
+
+const SUPPORTED_LANGUAGES: Language[] = [
+    {
+        id: '71',
+        name: 'Python',
+        fileExtension: '.py',
+        defaultTemplate: '# Write your Python code here\n'
+    },
+    {
+        id: '48',
+        name: 'C',
+        fileExtension: '.c',
+        defaultTemplate: 
+`#include <stdio.h>
+
+int main() {
+    // Write your C code here
+    return 0;
+}`,
+    },
+    {
+        id: '62',
+        name: 'Java',
+        fileExtension: '.java',
+        defaultTemplate:
+`public class Main {
+    public static void main(String[] args) {
+        // Write your Java code here
+    }
+}`,
+    }
+];
+
 function App() {
-    const [sourceCode, setSourceCode] = useState('');
-    const [languageId, setLanguageId] = useState('71'); // Python
+    const [sourceCode, setSourceCode] = useState(SUPPORTED_LANGUAGES[0].defaultTemplate);
+    const [languageId, setLanguageId] = useState(SUPPORTED_LANGUAGES[0].id);
     const [stdin, setStdin] = useState('');
     const [output, setOutput] = useState('');
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [statusMessage, setStatusMessage] = useState('');
+
+    const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedLang = SUPPORTED_LANGUAGES.find(lang => lang.id === e.target.value);
+        if (selectedLang) {
+            setLanguageId(selectedLang.id);
+            // Only set the template if the current code is empty or matches another template
+            if (!sourceCode.trim() || SUPPORTED_LANGUAGES.some(lang => sourceCode === lang.defaultTemplate)) {
+                setSourceCode(selectedLang.defaultTemplate);
+            }
+        }
+    };
 
     const handleSubmit = async () => {
         if (!sourceCode.trim()) {
@@ -35,12 +87,12 @@ function App() {
 
         try {
             const response = await axios.post<JudgeResponse>('http://localhost:3001/submit', {
-                sourceCode: sourceCode.trim(),
-                languageId: parseInt(languageId),
+                source_code: sourceCode.trim(),
+                language_id: parseInt(languageId),
                 stdin: stdin.trim()
             });
 
-            const result = response.data;
+            const result = response.data.result;
             console.log('Submission result:', result);
 
             // Handle different status codes
@@ -86,11 +138,26 @@ function App() {
     return (
         <div className="App">
             <div className="code-editor">
-                <h2>Python Code Editor</h2>
+                <h2>Code Editor</h2>
+                <div className="language-selector">
+                    <label htmlFor="language-select">Select Language: </label>
+                    <select
+                        id="language-select"
+                        value={languageId}
+                        onChange={handleLanguageChange}
+                        disabled={isLoading}
+                    >
+                        {SUPPORTED_LANGUAGES.map(lang => (
+                            <option key={lang.id} value={lang.id}>
+                                {lang.name}
+                            </option>
+                        ))}
+                    </select>
+                </div>
                 <textarea
                     value={sourceCode}
                     onChange={(e) => setSourceCode(e.target.value)}
-                    placeholder="Write your Python code here..."
+                    placeholder={`Write your ${SUPPORTED_LANGUAGES.find(lang => lang.id === languageId)?.name} code here...`}
                     className="code-input"
                     disabled={isLoading}
                 />
