@@ -1,0 +1,135 @@
+/* Full-Screen Container with White Background */
+.app-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white; /* Set background to white */
+}
+
+/* Container for the form */
+.form-container {
+    background-color: #d9d9d9;
+    color: black;
+    padding: 50px 100px;
+    width: 80%;
+    max-width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Title */
+.form-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* "No. of Experiments" Below Title */
+.sub-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+}
+
+/* Experiment grid for spacing */
+.experiment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 10px auto;
+}
+
+/* Input field container */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Input wrapper for icon positioning */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Input fields */
+.input-field {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: white;
+    width: 80%;
+    text-align: center;
+    color: black; /* Ensures text is visible */
+}
+
+/* Locked input field */
+.locked {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+    color: rgb(128, 128, 128);
+}
+
+/* Lock icon centered inside the input field */
+.lock-icon {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    color: rgb(192, 15, 15);
+    font-size: 20px;
+    pointer-events: none;
+}
+
+/* Centered "Next" button */
+.next-button {
+    display: block;
+    margin: 30px auto 0;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #90ee90;
+    color: black;
+    transition: background 0.3s ease;
+}
+
+.next-button:hover {
+    background-color: #77dd77;
+}
+
+/* Back button */
+.back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 12px;
+    background-color: #90ee90;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #77dd77;
+}
