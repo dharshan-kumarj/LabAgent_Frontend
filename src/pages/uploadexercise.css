@@ -1,0 +1,67 @@
+.container {
+    text-align: center;
+    background: #f0f0f0; /* Light gray background */
+    padding: 500px;
+    border-radius: 15px;
+    max-width: 600px; /* Reduced width for compact look */
+    margin: auto;
+    border: 2px solid rgb(0, 0, 0); /* Border to match the UI */
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.upload-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 50px; /* Adjusted spacing */
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.upload-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Proper spacing between number and button */
+}
+
+.number {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.upload-btn {
+    background: white;
+    color: black;
+    border: 2px solid black;
+    padding: 5px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px; /* Adjusted width to match UI */
+}
+
+.upload-btn:hover {
+    background: rgb(255, 254, 254);
+}
+
+.save-btn {
+    background: lightgreen;
+    color: black; /* Set text color to black */
+    padding: 10px 25px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 15px;
+    width: 120px; /* Adjusted width */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
