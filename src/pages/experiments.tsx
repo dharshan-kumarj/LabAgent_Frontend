@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Experiments.css";
+import Logo from "../assets/karunya logo.png";
 
 const Experiments: React.FC = () => {
   const [selected, setSelected] = useState<number>(1);

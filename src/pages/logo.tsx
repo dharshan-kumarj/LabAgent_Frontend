@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../assets/images/karunya logo.png'; // Replace with the correct path to your logo
+import logo from '../assets/karunya logo.png'; // Replace with the correct path to your logo
 
 const Logo: React.FC = () => {
     return (

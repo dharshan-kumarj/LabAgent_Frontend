@@ -1,67 +1,88 @@
-.container {
-    text-align: center;
-    background: #f0f0f0; /* Light gray background */
-    padding: 500px;
-    border-radius: 15px;
-    max-width: 600px; /* Reduced width for compact look */
-    margin: auto;
-    border: 2px solid rgb(0, 0, 0); /* Border to match the UI */
-}
-
-.title {
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-    margin-bottom: 20px;
-}
-
-.upload-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 50px; /* Adjusted spacing */
+/* Center the page */
+.upload-page-container {
+    display: flex;
     justify-content: center;
-    margin-top: 10px;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
 }
 
+/* Center the form container */
+.upload-form-container {
+    background-color: #f4f4f4;
+    color: black;
+    padding: 30px;
+    max-width: 350px; 
+    width: 100%;
+    height: 450px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    border: 2px solid black;
+}
+
+/* Title */
+.upload-form-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 50px;
+    margin-top: -10px;
+    text-align: left;
+}
+
+/* Grid for Upload Buttons */
+.upload-experiment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px 10px; 
+    justify-content: center;
+    align-items: center;
+}
+
+/* Individual Row */
 .upload-row {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Proper spacing between number and button */
+    gap: 10px;
 }
 
-.number {
-    font-size: 18px;
+/* Experiment Number */
+.upload-number {
+    font-size: 16px;
     font-weight: bold;
     color: black;
 }
 
+/* Upload Button */
 .upload-btn {
     background: white;
     color: black;
-    border: 2px solid black;
-    padding: 5px 20px;
+    border: 2px;
+    padding: 8px 16px;
+    font-size: 14px;
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
-    width: 100px; /* Adjusted width to match UI */
+    width: 100px;
+    text-align: center;
 }
 
 .upload-btn:hover {
-    background: rgb(255, 254, 254);
+    background: rgb(240, 240, 240);
 }
 
-.save-btn {
+/* Save Button */
+.upload-save-button {
     background: lightgreen;
-    color: black; /* Set text color to black */
-    padding: 10px 25px;
-    border: none;
+    color: black;
+    padding: 8px 20px;
+    font-size: 16px;
+    border: 2px ;
     font-weight: bold;
     border-radius: 5px;
-    margin-top: 15px;
-    width: 120px; /* Adjusted width */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 50px;
+    width: 120px;
     cursor: pointer;
 }

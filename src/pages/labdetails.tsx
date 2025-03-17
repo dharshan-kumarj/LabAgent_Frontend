@@ -2,37 +2,35 @@ import React, { useState } from "react";
 import "./labdetails.css";
 
 const LabDetails: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"record" | "video">("record");
+  const [activeTab, setActiveTab] = useState("record");
 
   return (
-    <div className="container">
-      <div className="header">
-      <img src="/src/assets/images/karunya logo.png" alt="Karunya Logo" className="logo" />
-      </div>
-
-      <div className="tab-container">
+    <div className="lab-container">
+      {/* Tabs Section */}
+      <div className="lab-tabs">
         <div
-          className={`tab ${activeTab === "record" ? "active" : ""}`}
+          className={`lab-tab ${activeTab === "record" ? "active" : ""}`}
           onClick={() => setActiveTab("record")}
         >
           Record
         </div>
         <div
-          className={`tab ${activeTab === "video" ? "active" : ""}`}
+          className={`lab-tab ${activeTab === "video" ? "active" : ""}`}
           onClick={() => setActiveTab("video")}
         >
           Video
         </div>
       </div>
 
-      <div className="content">
+      {/* Content Section */}
+      <div className="lab-content">
         {activeTab === "record" ? (
-          <div className="document-preview">
-            <img src="/src/assets/images/record.png" alt="Document Preview" />
+          <div className="document-view">
+            <img src="/document.png" alt="Record Document" className="document-image" />
           </div>
         ) : (
-          <div className="video-preview">
-            <video controls>
+          <div className="video-view">
+            <video controls className="video-player">
               <source src="/sample-video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -40,7 +38,8 @@ const LabDetails: React.FC = () => {
         )}
       </div>
 
-      <button className="submit-btn">Submit</button>
+      {/* Submit Button */}
+      <button className="lab-submit-button">Submit</button>
     </div>
   );
 };
