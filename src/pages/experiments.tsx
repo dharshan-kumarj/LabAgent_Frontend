@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Experiments.css";
-import Logo from "../assets/karunya logo.png";
+import Logo from "../../public/images/karunya_logo.png";
 
 const Experiments: React.FC = () => {
   const [selected, setSelected] = useState<number>(1);
@@ -9,7 +9,7 @@ const Experiments: React.FC = () => {
     <div className="main-container">
       {/* Header with Logo */}
       <div className="header">
-        <img src="/karunya logo.png" alt="Karunya Logo" className="logo" />
+        {Logo && <img src={Logo} alt="Karunya Logo" className="logo" />} 
       </div>
 
       {/* Experiment Section */}

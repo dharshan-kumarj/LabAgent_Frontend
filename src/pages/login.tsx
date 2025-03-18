@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from "../../public/images/karunya_logo.png"
 
 const LoginPage: React.FC = () => {
   const handleRoleSelection = (role: string) => {
@@ -8,9 +9,9 @@ const LoginPage: React.FC = () => {
 
   return (
     <body>
-        <div style={containerStyle}>
-      <div style={logoContainerStyle}>
-        <img src="\src\assets\images\karunya logo.png" alt="Karunya Logo" style={logoStyle}/>
+      <div style={containerStyle}>
+      <div className="logoContainerStyle">
+        {Logo && <img src={Logo} alt="Karunya Logo" className="logo" />} 
       </div>
       <h2 style={titleStyle}>Select the role to Login</h2>
       <div style={buttonContainerStyle}>
