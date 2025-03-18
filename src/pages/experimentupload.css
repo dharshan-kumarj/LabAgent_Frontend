@@ -1,0 +1,137 @@
+/* Ensure the page container is centered */
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+}
+
+/* Center the form container */
+.form-container {
+    background-color: #d9d9d9;
+    color: rgb(0, 0, 0);
+    padding: 40px;
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Title */
+.form-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Subtitle */
+.sub-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+}
+
+/* Grid Layout */
+.experiment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Input Fields */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-field {
+    padding: 10px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    background: white;
+    width: 150px;
+    text-align: left;
+    color: black;
+}
+
+/* Ensure placeholder text is black */
+.input-field::placeholder {
+    color: black;
+    opacity: 1; /* Ensure visibility */
+}
+
+/* Button Wrapper */
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Space between buttons */
+    margin-top: 50px;
+    width: 100%;
+}
+
+/* Buttons */
+.submit-button, .upload-button {
+    
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    width: 160px; /* Ensuring equal width */
+    height: 50px; /* Ensuring equal height */
+    background-color: #90ee90; /* Light green */
+    color: black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover Effects */
+.submit-button:hover, .upload-button:hover {
+    background-color: #76d976; /* Slightly darker green */
+}
+
+/* Back Button */
+.back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #a0f0a0;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .experiment-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* Adjust spacing between buttons for mobile */
+    }
+}

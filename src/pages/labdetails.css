@@ -1,0 +1,98 @@
+/* Center the container */
+.lab-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    width: 1000%;
+    max-width: 1000px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 50px;
+    margin-top: 50px;
+    margin-left: 200px;
+    position: relative;
+}
+
+/* Tabs section moved to top */
+.lab-tabs {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.lab-tab {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    border-bottom: 2px solid black;
+    background-color: #f0f0f0;
+}
+
+.lab-tab.active {
+    background-color: #90ee90;
+}
+
+/* Content section */
+.lab-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 300px;
+    margin-top: 50px; /* Adjusted to avoid overlap */
+}
+
+/* Document styling */
+.document-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.document-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Video styling */
+.video-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.video-player {
+    width: 1000%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+/* Submit button */
+.lab-submit-button {
+    align-self: flex-end;
+    margin-top: 150px;
+    margin-right: 20px;
+    padding: 10px 30px;
+    background-color: #90ee90;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.lab-submit-button:hover {
+    background-color: #77cc77;
+}

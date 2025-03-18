@@ -1,0 +1,73 @@
+/* White background */
+body {
+  background-color: white;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Top-left logo */
+.header {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.logo {
+  width: 50px;
+}
+
+/* Adjusted Main Container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
+  padding-left: 50px;
+  margin-top: -50px; /* Move everything slightly up */
+}
+
+
+/* Title - Move Up */
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 60px; /* Reduce bottom margin to bring it up */
+}
+
+
+/* Experiment Container - Move Up */
+.experiment-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: -30px; /* Move the boxes slightly up */
+}
+
+/* Grid layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: 200px 200px; /* Two fixed columns */
+  gap: 50px 100px; /* Vertical and horizontal gap */
+}
+
+/* Box styling */
+.experiment-box {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 15px;
+  width: 180px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #ddd;
+  color: black;
+  border-radius: 8px;
+}
+
+/* First box in light green */
+.experiment-box.active {
+  background-color: lightgreen;
+}
