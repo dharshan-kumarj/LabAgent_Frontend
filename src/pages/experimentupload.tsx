@@ -9,11 +9,28 @@ const DataScienceForm: React.FC = () => {
   const labName = location.state?.labName || "Unknown Lab";
 
   const [experiments, setExperiments] = useState<string[]>(Array(10).fill(""));
+  const [files, setFiles] = useState<(File | null)[]>(Array(10).fill(null));
 
   const handleChange = (index: number, value: string) => {
     const newExperiments = [...experiments];
     newExperiments[index] = value;
     setExperiments(newExperiments);
+  };
+
+  const handleFileUpload = (index: number, event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      const newFiles = [...files];
+      newFiles[index] = event.target.files[0];
+      setFiles(newFiles);
+    }
+  };
+
+  const handleSubmit = () => {
+    console.log("Experiments:", experiments);
+    console.log("Files:", files);
+
+    // Navigate to Experiments page and pass data
+    navigate("/experiments", { state: { experiments, files } });
   };
 
   return (
@@ -28,22 +45,32 @@ const DataScienceForm: React.FC = () => {
             <div key={index} className="input-group">
               <input
                 type="text"
-                id={`experiment-${index + 1}`}
                 className="input-field"
-                placeholder={`${index + 1}.`}
+                placeholder={`${index + 1}. Experiment Name`}
                 value={experiments[index]}
                 onChange={(e) => handleChange(index, e.target.value)}
               />
+
+              {/* Hidden File Input */}
+              <input
+                type="file"
+                id={`file-upload-${index}`}
+                className="file-upload"
+                onChange={(e) => handleFileUpload(index, e)}
+                style={{ display: "none" }} // Hide default input
+              />
+
+              {/* Custom File Upload Label */}
+              <label htmlFor={`file-upload-${index}`} className="custom-file-label">
+                Upload
+              </label>
             </div>
           ))}
         </div>
 
         <div className="buttons">
-          <button className="submit-button" onClick={() => navigate("/experiments")}>
+          <button className="submit-button" onClick={handleSubmit}>
             Submit
-          </button>
-          <button className="upload-button" onClick={() => navigate("/upload-exercise")}>
-            Upload
           </button>
         </div>
 

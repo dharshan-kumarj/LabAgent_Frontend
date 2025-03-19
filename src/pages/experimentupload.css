@@ -1,39 +1,33 @@
-/* Ensure the page container is centered */
+/* Center the form */
 .page-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 120vh;
     width: 100vw;
     background-color: white;
 }
 
-/* Center the form container */
+/* Form container */
 .form-container {
     background-color: #d9d9d9;
-    color: rgb(0, 0, 0);
+    color: black;
     padding: 40px;
-    max-width: 700px;
+    max-width: 1000px;
     width: 100%;
-    height: auto;
     border-radius: 10px;
     text-align: center;
     position: relative;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
-/* Title */
+/* Title and subtitle */
 .form-title {
     font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-/* Subtitle */
 .sub-title {
     font-size: 1.2rem;
     font-weight: bold;
@@ -45,69 +39,69 @@
 .experiment-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 20px;
     justify-content: center;
     align-items: center;
 }
 
-/* Input Fields */
+/* Input Group */
 .input-group {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
 }
 
+/* Input Field */
 .input-field {
     padding: 10px;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid white;
     border-radius: 5px;
     font-size: 1rem;
     font-weight: bold;
     background: white;
-    width: 150px;
+    width: 180px;
     text-align: left;
     color: black;
 }
 
-/* Ensure placeholder text is black */
-.input-field::placeholder {
-    color: black;
-    opacity: 1; /* Ensure visibility */
+/* Hide default file input */
+.file-upload {
+    display: none;
 }
 
-/* Button Wrapper */
-.buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px; /* Space between buttons */
-    margin-top: 50px;
-    width: 100%;
+/* Custom Upload Button (Label) */
+.custom-file-label {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
 }
 
-/* Buttons */
-.submit-button, .upload-button {
-    
+.custom-file-label:hover {
+    background-color: #45a049;
+}
+
+/* Submit Button */
+.submit-button {
     padding: 12px 24px;
     font-size: 1rem;
     border: none;
     cursor: pointer;
     border-radius: 8px;
     font-weight: bold;
-    width: 160px; /* Ensuring equal width */
-    height: 50px; /* Ensuring equal height */
-    background-color: #90ee90; /* Light green */
+    background-color: #90ee90;
     color: black;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     transition: 0.3s ease-in-out;
 }
 
-/* Hover Effects */
-.submit-button:hover, .upload-button:hover {
-    background-color: #76d976; /* Slightly darker green */
+.submit-button:hover {
+    background-color: #76d976;
 }
 
 /* Back Button */
@@ -127,11 +121,10 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .experiment-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
     .buttons {
         flex-direction: column;
-        align-items: center;
-        gap: 20px; /* Adjust spacing between buttons for mobile */
+        gap: 20px;
     }
 }
