@@ -12,12 +12,14 @@ import Experiment from "./pages/experiments";
 import ExperimentDetails from "./pages/experimentdetails";
 import LabDetails from "./pages/labdetails";
 import StudentLabExercise from "./pages/StudentLabExercise";
+import StudentList from "./pages/Studentlist";  
+import ExerciseProgress from "./pages/ExerciseProgress"; 
 
 const App: React.FC = () => {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Logo />} /> {/* Show logo first */}
+                <Route path="/" element={<Logo />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/faculty-login" element={<FacultyLogin />} />
                 <Route path="/student-login" element={<StudentLogin />} />
@@ -29,6 +31,8 @@ const App: React.FC = () => {
                 <Route path="/details" element={<ExperimentDetails />} />
                 <Route path="/record" element={<LabDetails />} />
                 <Route path="/student-lab/:labCode" element={<StudentLabExercise />} />
+                <Route path="/students/:labCode" element={<StudentList />} />
+                <Route path="/progress/:studentId" element={<ExerciseProgress />} />
             </Routes>
         </Router>
     );

@@ -1,0 +1,48 @@
+/* StudentList.css */
+.student-list-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.student-list-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.student-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px; /* Adds spacing between buttons */
+}
+
+.student-button {
+    background-color: #212529;
+    color: white;
+    padding: 10px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.student-button:hover {
+    background-color: #343a40;
+    transform: scale(1.05);
+}
+
+.student-button:active {
+    transform: scale(0.95);
+}
+/* StudentList.css */
+.karunya-logo {
+    display: block;
+    width: 150px; /* Adjust size */
+    margin: 0 auto 20px; /* Center and add spacing */
+}
+.lab-name {
+    font-weight: bold;
+    color: #000000; /* Black color */
+}
