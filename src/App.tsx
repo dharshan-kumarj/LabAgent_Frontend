@@ -27,7 +27,7 @@ const SUPPORTED_LANGUAGES: Language[] = [
         id: '71',
         name: 'Python',
         fileExtension: '.py',
-        defaultTemplate: '# Write your Python code here\n'
+        defaultTemplate: 'print("hi")\n'
     },
     {
         id: '48',
