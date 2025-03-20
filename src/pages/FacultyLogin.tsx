@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./FacultyLogin.css";
+import "../styles/FacultyLogin.css";
 import karunyaLogo from "../assets/karunya logo.png"; // ✅ Corrected asset import
 
 const FacultyLogin: React.FC = () => {

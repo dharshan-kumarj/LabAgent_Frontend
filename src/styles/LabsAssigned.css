@@ -1,0 +1,173 @@
+/* Full-Page Container */
+.labs-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Header Logo */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 60px;
+    height: auto;
+}
+
+/* Layout Container */
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1900px;
+    border-radius: 10px;
+    overflow: hidden;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+/* Left Section */
+.left-section {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Title */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Lab List */
+.labs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Lab Card */
+.lab-card {
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    width: 100%;
+}
+
+/* Lab Info (Clickable part) */
+.lab-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Lab Card Hover Effect */
+.lab-card:hover {
+    background: #c8f7c5;
+}
+
+/* Selected Lab */
+.lab-card.selected {
+    background: #c8f7c5;
+    border: 2px solid green;
+}
+
+/* Lab Name */
+.lab-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Lab Details (Code + Batch) */
+.lab-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.lab-code,
+.lab-batch {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Progress Button */
+.progress-button {
+    margin-left: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.progress-button:hover {
+    background-color: #0056b3;
+}
+
+/* Right Section (Illustration) */
+.logo-2 {
+    flex: 1;
+    width: 50px;
+    height: auto;
+    object-fit: contain;
+    padding: 50px;
+    border-radius: 8px;
+    margin-left: 300px;
+    margin-top: 50px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo-2 {
+        width: 100%;
+        max-width: 250px;
+        margin-top: 20px;
+    }
+
+    .left-section {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .lab-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .lab-details {
+        align-items: flex-start;
+    }
+
+    .progress-button {
+        width: 100%;
+        margin-top: 5px;
+    }
+}

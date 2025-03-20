@@ -1,28 +1,39 @@
-import React from 'react';
-import logo from '../assets/karunya logo.png'; // Replace with the correct path to your logo
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import logo from "../assets/karunya logo.png"; // Ensure the path is correct
 
 const Logo: React.FC = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Redirect to login after 3 seconds
+        const timer = setTimeout(() => {
+            navigate("/login");
+        }, 3000);
+
+        return () => clearTimeout(timer); // Cleanup timeout on unmount
+    }, [navigate]);
+
     return (
-        <body>
         <div style={styles.container}>
             <img src={logo} alt="Logo" style={styles.logo} />
         </div>
-        </body>
     );
 };
 
+// CSS Styles
 const styles = {
     container: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-        backgroundColor: '#fff', // White background
-        width:'100%',
+        display: "flex",
+        justifyContent: "center",  // Center horizontally
+        alignItems: "center",       // Center vertically
+        height: "100vh",            // Full viewport height
+        width: "100vw",             // Full viewport width
+        backgroundColor: "#fff",     // White background
     },
     logo: {
-        maxWidth: '100%',
-        height: 'auto',
+        width: "250px",   // Set a specific width for consistency
+        height: "auto",   // Maintain aspect ratio
     },
 };
 

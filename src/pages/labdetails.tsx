@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom"; // ✅ Import useNavigate
-import "./labdetails.css";
+import "../styles/labdetails.css";
 
 const LabDetails: React.FC = () => {
   const location = useLocation();
@@ -39,7 +39,7 @@ const LabDetails: React.FC = () => {
       <div className="lab-content">
         {activeTab === "record" ? (
           <div className="document-view">
-            <img src="/document.png" alt="Record Document" className="document-image" />
+            <img src="/record.png" alt="Record Document" className="document-image" />
           </div>
         ) : (
           <div className="video-view">

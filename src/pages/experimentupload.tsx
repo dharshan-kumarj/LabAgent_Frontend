@@ -1,22 +1,27 @@
 import React, { useState } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
-import "./experimentupload.css";
+import "../styles/experimentupload.css";
 
 const DataScienceForm: React.FC = () => {
-  const { labCode } = useParams();
-  const location = useLocation();
+  const { labCode } = useParams(); // Get lab code from URL
+  const location = useLocation(); // Get state from navigation
   const navigate = useNavigate();
+
+  // ✅ Extract lab name from location state (if available)
   const labName = location.state?.labName || "Unknown Lab";
 
+  // State for storing experiments and files
   const [experiments, setExperiments] = useState<string[]>(Array(10).fill(""));
   const [files, setFiles] = useState<(File | null)[]>(Array(10).fill(null));
 
+  // Handle experiment name change
   const handleChange = (index: number, value: string) => {
     const newExperiments = [...experiments];
     newExperiments[index] = value;
     setExperiments(newExperiments);
   };
 
+  // Handle file upload
   const handleFileUpload = (index: number, event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const newFiles = [...files];
@@ -25,6 +30,7 @@ const DataScienceForm: React.FC = () => {
     }
   };
 
+  // Handle form submission
   const handleSubmit = () => {
     console.log("Experiments:", experiments);
     console.log("Files:", files);
@@ -36,7 +42,7 @@ const DataScienceForm: React.FC = () => {
   return (
     <div className="page-container">
       <div className="form-container">
-        <h1 className="form-title">{labName}</h1>
+        <h1 className="form-title">{labName}</h1> {/* ✅ Display Lab Name */}
         <h2 className="sub-title">Lab Code: {labCode}</h2>
         <h2 className="sub-title">No. of Experiments</h2>
 

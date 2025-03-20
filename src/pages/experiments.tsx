@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import "./Experiments.css";
+import "../styles/Experiments.css";
 import Logo from "../assets/karunya logo.png"; 
 
 const Experiments: React.FC = () => {

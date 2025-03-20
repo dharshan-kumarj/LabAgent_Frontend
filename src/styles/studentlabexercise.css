@@ -8,7 +8,6 @@
     background-color: white; /* Set background to white */
 }
 
-
 .form-container {
     background-color: #d9d9d9;
     color: black;
@@ -20,7 +19,6 @@
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
-
 
 /* Title */
 .form-title {
@@ -48,48 +46,42 @@
     margin: 10px auto;
 }
 
-/* Input field container */
-.input-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-}
-
-/* Input wrapper for icon positioning */
-.input-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-/* Input fields */
-.input-field {
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 1rem;
-    background: white;
+/* Selectable Experiment Cards */
+.experiment-card {
     width: 80%;
+    padding: 15px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 8px;
     text-align: center;
-    color: black; /* Ensures text is visible */
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-/* Locked input field */
-.locked {
+.experiment-card:hover {
+    background-color: #f0f0f0;
+}
+
+.experiment-card.selected {
+    background-color: #90ee90; /* Light green to indicate selection */
+    border-color: #008000;
+}
+
+.experiment-card.locked {
     background-color: #e0e0e0;
     cursor: not-allowed;
     color: rgb(128, 128, 128);
 }
 
-/* Lock icon centered inside the input field */
+/* Lock icon moved to the right side */
 .lock-icon {
     position: absolute;
-    right: 50%;
-    transform: translateX(50%);
+    right: 10px; /* Moves it to the right */
+    top: 50%;
+    transform: translateY(-50%);
     color: rgb(12, 11, 11);
     font-size: 20px;
     pointer-events: none;
@@ -112,6 +104,11 @@
 
 .next-button:hover {
     background-color: #77dd77;
+}
+
+.next-button:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
 }
 
 /* Back button */

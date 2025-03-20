@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom"; // ✅ Import useNavigate
-import "./experimentdetails.css";
+import "../styles/experimentdetails.css";
 
 const ExperimentDetails: React.FC = () => {
   const location = useLocation();

@@ -3,18 +3,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 120vh;
+    height: 100vh;
     width: 100vw;
     background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto; /* Prevents overflow issues */
 }
 
 /* Form container */
 .form-container {
     background-color: #d9d9d9;
     color: black;
-    padding: 40px;
-    max-width: 1000px;
-    width: 100%;
+    padding: 25px;
+    max-width: 700px; /* Reduced from 900px */
+    width: 80%; /* Adjusted width */
     border-radius: 10px;
     text-align: center;
     position: relative;
@@ -23,25 +26,26 @@
 
 /* Title and subtitle */
 .form-title {
-    font-size: 1.8rem;
+    font-size: 1.4rem; /* Reduced */
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .sub-title {
-    font-size: 1.2rem;
+    font-size: 1rem; /* Slight reduction */
     font-weight: bold;
     color: black;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
 
 /* Grid Layout */
 .experiment-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 15px; /* Reduced */
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 /* Input Group */
@@ -49,18 +53,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 10px; /* Reduced */
+    width: 100%;
 }
 
 /* Input Field */
 .input-field {
-    padding: 10px;
+    padding: 10px; /* Slightly reduced */
     border: 1px solid white;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Reduced */
     font-weight: bold;
     background: white;
-    width: 180px;
+    width: 220px; /* Reduced from 250px */
     text-align: left;
     color: black;
 }
@@ -74,8 +79,8 @@
 .custom-file-label {
     background-color: #4CAF50;
     color: white;
-    padding: 8px 12px;
-    font-size: 0.9rem;
+    padding: 7px 10px; /* Reduced */
+    font-size: 0.85rem; /* Adjusted */
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
@@ -89,11 +94,11 @@
 
 /* Submit Button */
 .submit-button {
-    padding: 12px 24px;
-    font-size: 1rem;
+    padding: 8px 16px; /* Slightly smaller */
+    font-size: 0.85rem; /* Adjusted */
     border: none;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 6px;
     font-weight: bold;
     background-color: #90ee90;
     color: black;
@@ -104,18 +109,29 @@
     background-color: #76d976;
 }
 
-/* Back Button */
+/* Back Button (Now inside the form and smaller) */
 .back-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 10px 15px;
+    padding: 6px 12px; /* Reduced size */
+    font-size: 0.8rem; /* Adjusted text */
     background-color: #a0f0a0;
     color: black;
     border: none;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
+    margin-bottom: 10px; /* Added space */
+}
+
+.back-button:hover {
+    background-color: #8ae08a;
+}
+
+/* Button container for alignment */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 15px;
 }
 
 /* Responsive Design */
@@ -123,8 +139,18 @@
     .experiment-grid {
         grid-template-columns: repeat(1, 1fr);
     }
-    .buttons {
+
+    .input-field {
+        width: 90%;
+    }
+
+    .form-container {
+        max-width: 90%; /* Adjust for smaller screens */
+    }
+
+    .button-container {
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
+        align-items: center;
     }
 }

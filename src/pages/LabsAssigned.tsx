@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./LabsAssigned.css";
+import "../styles/LabsAssigned.css";
 
 // Importing assets
-import karunyaLogo from "../assets/karunya logo.png"; // ✅ Fixed path
+import karunyaLogo from "../assets/karunya logo.png";
 import sysImage from "../assets/download.png";
 
 // Lab Data
@@ -17,8 +17,8 @@ const labsData = [
 const FacultyDashboard: React.FC = () => {
   const navigate = useNavigate(); // React Router navigation hook
 
-  const handleLabSelect = (labCode: string) => {
-    navigate(`/student-lab/${labCode}`); // ✅ Corrected path
+  const handleLabSelect = (labCode: string, labName: string) => {
+    navigate(`/student-lab/${labCode}`, { state: { labName } }); // ✅ Passing labName in state
   };
 
   return (
@@ -37,10 +37,10 @@ const FacultyDashboard: React.FC = () => {
               <div
                 key={lab.code}
                 className="lab-card"
-                onClick={() => handleLabSelect(lab.code)}
+                onClick={() => handleLabSelect(lab.code, lab.name)}
                 role="button"
                 tabIndex={0}
-                onKeyPress={(e) => e.key === "Enter" && handleLabSelect(lab.code)}
+                onKeyPress={(e) => e.key === "Enter" && handleLabSelect(lab.code, lab.name)}
               >
                 <span className="lab-name">{lab.name}</span>
                 <div className="lab-details">

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; // ✅ Import useNavigate
-import "./uploadexercise.css";
+import "../styles/uploadexercise.css";
 
 const UploadExercise: React.FC = () => {
   const navigate = useNavigate(); // ✅ Initialize navigation

@@ -70,6 +70,13 @@
     width: 100%;
 }
 
+/* Lab Info (Clickable part) */
+.lab-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
 /* Lab Card Hover Effect */
 .lab-card:hover {
     background: #c8f7c5;
@@ -92,13 +99,30 @@
 .lab-details {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
 .lab-code,
 .lab-batch {
     font-size: 14px;
     color: #555;
+}
+
+/* Progress Button */
+.progress-button {
+    margin-left: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.progress-button:hover {
+    background-color: #0056b3;
 }
 
 /* Right Section (Illustration) */
@@ -140,5 +164,10 @@
 
     .lab-details {
         align-items: flex-start;
+    }
+
+    .progress-button {
+        width: 100%;
+        margin-top: 5px;
     }
 }

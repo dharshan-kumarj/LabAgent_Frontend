@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./LabsAssigned.css";
+import "../styles/LabsAssigned.css";
 import karunyaLogo from "../assets/karunya logo.png";
 import sysImage from "../assets/sys.png";
 
@@ -24,17 +24,33 @@ const FacultyDashboard: React.FC = () => {
 
           <div className="labs-list">
             {labsData.map((lab) => (
-              <div 
-                key={lab.code} 
-                className="lab-card" 
-                onClick={() => navigate(`/experiment-upload/${lab.code}`)}
-                style={{ cursor: "pointer" }}
-              >
-                <span className="lab-name">{lab.name}</span>
-                <div className="lab-details">
-                  <span className="lab-code">{lab.code}</span>
-                  <span className="lab-batch">{lab.batch}</span>
+              <div key={lab.code} className="lab-card">
+                <div
+                  className="lab-info"
+                  onClick={() =>
+                    navigate(`/experiment-upload/${lab.code}`, {
+                      state: { labName: lab.name }, // ✅ Pass lab name in state
+                    })
+                  }
+                  style={{ cursor: "pointer" }}
+                >
+                  <span className="lab-name">{lab.name}</span>
+                  <div className="lab-details">
+                    <span className="lab-code">{lab.code}</span>
+                    <span className="lab-batch">{lab.batch}</span>
+                  </div>
                 </div>
+
+                {/* Progress Button */}
+                <button
+                  className="progress-button"
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent triggering the lab card click
+                    navigate(`/progress/${lab.code}`);
+                  }}
+                >
+                  Progress
+                </button>
               </div>
             ))}
           </div>
