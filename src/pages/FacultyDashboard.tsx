@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import karunyaLogo from "../assets/karunya logo.png"; // Fixed filename
-import sysImage from "../assets/sys.png";
+import karunyaLogo from "../assets/karunya logo.png"; // Ensure correct path
+import sysImage from "../assets/sys.png"; // Ensure correct path
 
 const labsData = [
   { name: "Data Science & Ecosystem", code: "23DC2004", batch: "Batch-2" },
@@ -13,13 +13,16 @@ const labsData = [
 const LabsAssigned: React.FC = () => {
   const navigate = useNavigate();
 
+  // ✅ Handles Single and Double Click (Navigates to `experiment-upload`)
   const handleLabClick = (lab: { name: string; code: string }) => {
-    navigate(`/experiment-upload/${lab.code}`, { state: { labName: lab.name } }); // ✅ Always go to experiment-upload
+    navigate(`/experiment-upload/${lab.code}`, { state: { labName: lab.name } });
   };
 
   return (
     <div className="labs-container">
+      {/* ✅ Karunya Logo */}
       <img src={karunyaLogo} alt="Karunya Logo" className="logo" />
+
       <div className="container">
         <div className="left-section">
           <h1 className="title">Labs Assigned to You</h1>
@@ -29,7 +32,7 @@ const LabsAssigned: React.FC = () => {
               <div
                 key={lab.code}
                 className="lab-card"
-                onClick={() => handleLabClick(lab)} // ✅ Single & Double tap go to experiment-upload
+                onClick={() => handleLabClick(lab)} // ✅ Single & Double Click → `experiment-upload`
               >
                 <div className="lab-info">
                   <span className="lab-name">{lab.name}</span>
@@ -39,11 +42,11 @@ const LabsAssigned: React.FC = () => {
                   </div>
                 </div>
 
-                {/* ✅ Only Clicking the Progress Button Navigates to Student List */}
+                {/* ✅ Clicking "Progress" Button Navigates to `students` */}
                 <button
                   className="progress-button"
                   onClick={(e) => {
-                    e.stopPropagation(); // ✅ Prevents triggering experiment-upload
+                    e.stopPropagation(); // ✅ Prevents parent click (avoids `experiment-upload`)
                     navigate(`/students/${lab.code}`, { state: { labName: lab.name } });
                   }}
                 >
@@ -54,6 +57,7 @@ const LabsAssigned: React.FC = () => {
           </div>
         </div>
 
+        {/* ✅ System Illustration Image */}
         <img src={sysImage} alt="University Illustration" className="logo-2" />
       </div>
     </div>
