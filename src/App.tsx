@@ -62,6 +62,7 @@ function App() {
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [statusMessage, setStatusMessage] = useState('');
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
     const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedLang = SUPPORTED_LANGUAGES.find(lang => lang.id === e.target.value);
@@ -135,17 +136,38 @@ function App() {
         }
     };
 
+    const toggleFullScreen = () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    };
+
+    const toggleDarkMode = () => {
+        setIsDarkMode(prevMode => !prevMode);
+    };
+
     return (
-        <div className="App">
-            <div className="code-editor">
+        <div className={`App container-fluid ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+            <header className="d-flex justify-content-between p-3 bg-dark text-white">
+                <button onClick={toggleFullScreen} className="btn btn-primary">
+                    {document.fullscreenElement ? 'Exit Full Screen' : 'Full Screen'}
+                </button>
+                <button onClick={toggleDarkMode} className="btn btn-secondary">
+                    {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+                </button>
+            </header>
+            <div className="code-editor container">
                 <h2>Code Editor</h2>
-                <div className="language-selector">
-                    <label htmlFor="language-select">Select Language: </label>
+                <div className="language-selector mb-3">
+                    <label htmlFor="language-select" className="form-label">Select Language: </label>
                     <select
                         id="language-select"
                         value={languageId}
                         onChange={handleLanguageChange}
                         disabled={isLoading}
+                        className="form-select"
                     >
                         {SUPPORTED_LANGUAGES.map(lang => (
                             <option key={lang.id} value={lang.id}>
@@ -158,8 +180,9 @@ function App() {
                     value={sourceCode}
                     onChange={(e) => setSourceCode(e.target.value)}
                     placeholder={`Write your ${SUPPORTED_LANGUAGES.find(lang => lang.id === languageId)?.name} code here...`}
-                    className="code-input"
+                    className="code-input form-control mb-3"
                     disabled={isLoading}
+                    rows={10}
                 />
                 <div className="input-section">
                     <h3>Input (Optional)</h3>
@@ -167,33 +190,34 @@ function App() {
                         value={stdin}
                         onChange={(e) => setStdin(e.target.value)}
                         placeholder="Enter program input here..."
-                        className="stdin-input"
+                        className="stdin-input form-control mb-3"
                         disabled={isLoading}
+                        rows={5}
                     />
                 </div>
                 <button 
                     onClick={handleSubmit}
                     disabled={isLoading}
-                    className="submit-button"
+                    className="btn btn-success mb-3"
                 >
                     {isLoading ? 'Running...' : 'Run Code'}
                 </button>
                 
                 {statusMessage && (
-                    <div className="status-message">
+                    <div className="alert alert-info">
                         {statusMessage}
                     </div>
                 )}
                 
                 {error && (
-                    <div className="error-output">
+                    <div className="error-output alert alert-danger">
                         <h3>Error</h3>
                         <pre>{error}</pre>
                     </div>
                 )}
                 
                 {output && (
-                    <div className="code-output">
+                    <div className="code-output alert alert-success">
                         <h3>Output</h3>
                         <pre>{output}</pre>
                     </div>
