@@ -3,6 +3,7 @@ import Login from '@/pages/Login';
 import Register from '@/pages/Register';
 import Dashboard from '@/pages/Dashboard';
 import GoogleLogin from '@/pages/GoogleLogin';
+import ExperimentDetail from '@/pages/ExperimentDetail';
 import { isAuthenticated } from './auth';
 
 // Protected route wrapper component
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard',
         element: <Dashboard />
+      },
+      {
+        path: '/experiments/:id',
+        element: <ExperimentDetail />
       }
       // Add more authenticated routes here
     ]

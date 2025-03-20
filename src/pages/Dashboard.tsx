@@ -37,6 +37,10 @@ export default function Dashboard() {
       day: 'numeric'
     });
   };
+
+  const handleViewExperiment = (experimentId: string) => {
+    navigate(`/experiments/${experimentId}`);
+  };
   
   return (
     <div className="min-h-screen bg-background">
@@ -105,7 +109,11 @@ export default function Dashboard() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full" variant="default">
+                  <Button 
+                    className="w-full" 
+                    variant="default"
+                    onClick={() => handleViewExperiment(experiment.id)}
+                  >
                     <span>View Experiment</span>
                     <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </Button>
