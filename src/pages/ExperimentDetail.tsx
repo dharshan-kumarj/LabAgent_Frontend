@@ -64,13 +64,17 @@ export default function ExperimentDetail() {
     }
   };
 
+  const handleViewLabManual = (labManualId: string) => {
+    navigate(`/experiments/${id}/lab-manuals/${labManualId}`);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b">
         <div className="container mx-auto px-4 py-4">
           <Button 
             variant="ghost" 
-            onClick={() => navigate(-1)}
+            onClick={() => navigate('/dashboard')}
             className="flex items-center gap-2 -ml-2"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -138,7 +142,11 @@ export default function ExperimentDetail() {
                         </div>
                       </div>
 
-                      <Button variant="outline" className="w-full">
+                      <Button 
+                        variant="outline" 
+                        className="w-full"
+                        onClick={() => handleViewLabManual(manual.id)}
+                      >
                         View Lab Manual
                       </Button>
                     </CardContent>

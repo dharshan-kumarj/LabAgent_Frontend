@@ -5,6 +5,33 @@ export interface Problem {
   hints: string;
   labManualId: string;
   dateCreated: string;
+  solution?: string;
+  labManual?: {
+    id: string;
+    title: string;
+    experiment?: {
+      id: string;
+      title: string;
+      subject?: {
+        id: string;
+        name: string;
+        faculty?: {
+          id: string;
+          user?: {
+            firstName: string;
+            lastName: string;
+          }
+        },
+        students?: Array<{
+          id: string;
+          user?: {
+            firstName: string;
+            lastName: string;
+          }
+        }>
+      }
+    }
+  };
 }
 
 export interface LabManual {

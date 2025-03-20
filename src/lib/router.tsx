@@ -4,6 +4,8 @@ import Register from '@/pages/Register';
 import Dashboard from '@/pages/Dashboard';
 import GoogleLogin from '@/pages/GoogleLogin';
 import ExperimentDetail from '@/pages/ExperimentDetail';
+import LabManualDetail from '@/pages/LabManualDetail';
+import ProblemDetail from '@/pages/ProblemDetail';
 import { isAuthenticated } from './auth';
 
 // Protected route wrapper component
@@ -58,8 +60,15 @@ export const router = createBrowserRouter([
       {
         path: '/experiments/:id',
         element: <ExperimentDetail />
+      },
+      {
+        path: '/experiments/:experimentId/lab-manuals/:labManualId',
+        element: <LabManualDetail />
+      },
+      {
+        path: '/lab-manuals/:labManualId/problems/:problemId',
+        element: <ProblemDetail />
       }
-      // Add more authenticated routes here
     ]
   },
   {
