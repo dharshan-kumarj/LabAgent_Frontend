@@ -17,11 +17,11 @@ const CodeEditor = ({ initialCode, language, onRun, theme, isRunning }: CodeEdit
     SUPPORTED_LANGUAGES.find(lang => lang.name.toLowerCase() === language.toLowerCase())?.id || '71'
   );
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
-  const monacoRef = useRef<Monaco | null>(null); // Add this to store the Monaco instance
+  const monacoRef = useRef<Monaco | null>(null);
 
   const handleEditorDidMount = (editor: editor.IStandaloneCodeEditor, monaco: Monaco) => {
     editorRef.current = editor;
-    monacoRef.current = monaco; // Store the Monaco instance
+    monacoRef.current = monaco;
   };
 
   const handleEditorChange = (value: string | undefined) => {
@@ -39,10 +39,8 @@ const CodeEditor = ({ initialCode, language, onRun, theme, isRunning }: CodeEdit
     const newLanguageId = e.target.value;
     setSelectedLanguageId(newLanguageId);
     
-    // Get the language object
     const language = getLanguageById(newLanguageId);
     
-    // Update editor language - use monacoRef instead of the global monaco
     if (editorRef.current && monacoRef.current) {
       const model = editorRef.current.getModel();
       if (model) {
@@ -51,51 +49,59 @@ const CodeEditor = ({ initialCode, language, onRun, theme, isRunning }: CodeEdit
     }
   };
 
-  // Map the language ID to Monaco editor language
   const getMonacoLanguage = (languageId: string): string => {
     const lang = getLanguageById(languageId);
     switch (lang.name.toLowerCase()) {
-      case 'python':
-        return 'python';
-      case 'c':
-        return 'c';
-      case 'java':
-        return 'java';
-      default:
-        return 'plaintext';
+      case 'python': return 'python';
+      case 'c': return 'c';
+      case 'java': return 'java';
+      default: return 'plaintext';
     }
   };
 
   return (
-    <div className="code-editor-container">
-      <div className="d-flex justify-content-between align-items-center p-2 border-bottom">
-        <div>
-          <select 
-            className="form-select form-select-sm" 
-            style={{ width: '140px' }}
-            value={selectedLanguageId}
-            onChange={handleLanguageChange}
-            disabled={isRunning}
-          >
-            {SUPPORTED_LANGUAGES.map(lang => (
-              <option key={lang.id} value={lang.id}>
-                {lang.name}
-              </option>
-            ))}
-          </select>
-        </div>
+    <div style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '10px',
+        borderBottom: '1px solid #ccc',
+        background: theme === 'vs-dark' ? '#1e1e1e' : '#f5f5f5'
+      }}>
+        <select 
+          style={{ padding: '5px', borderRadius: '4px', border: '1px solid #ccc' }}
+          value={selectedLanguageId}
+          onChange={handleLanguageChange}
+          disabled={isRunning}
+        >
+          {SUPPORTED_LANGUAGES.map(lang => (
+            <option key={lang.id} value={lang.id}>
+              {lang.name}
+            </option>
+          ))}
+        </select>
         <button 
-          className="btn btn-primary btn-sm d-flex align-items-center gap-1"
+          style={{
+            padding: '8px 12px',
+            backgroundColor: '#007bff',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: isRunning ? 'not-allowed' : 'pointer',
+            opacity: isRunning ? 0.6 : 1
+          }}
           onClick={handleRun}
           disabled={isRunning}
         >
-          <i className="bi bi-play-fill"></i>
-          <span>{isRunning ? 'Running...' : 'Run'}</span>
+          {isRunning ? 'Running...' : 'Run'}
         </button>
       </div>
-      <div className="editor-wrapper">
+      <div style={{ flexGrow: 1 }}>
         <Editor
           height="100%"
+          width="100%"
+            language={getMonacoLanguage(selectedLanguageId)}
           defaultLanguage={getMonacoLanguage(selectedLanguageId)}
           defaultValue={initialCode}
           theme={theme}
