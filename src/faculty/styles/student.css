@@ -1,0 +1,79 @@
+/* ✅ Students Page Container */
+.students-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* ✅ Title */
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* ✅ Search Bar */
+.search-bar {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+/* ✅ Table Styling */
+.table {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f0f8ff; /* Light blue hover effect */
+}
+
+/* ✅ Progress Bar */
+.progress {
+    height: 25px;
+    border-radius: 5px;
+    background: #e9ecef;
+    overflow: hidden;
+    width: 100%;
+}
+
+.progress-bar {
+    background: #007bff;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    height: 100%;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    .students-container {
+        padding: 15px;
+        width: 90%;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .search-bar {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .progress {
+        height: 20px;
+    }
+}

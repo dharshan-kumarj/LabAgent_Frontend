@@ -1,0 +1,138 @@
+/* ✅ General Page Styling */
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* ✅ Navbar Styling */
+.navbar {
+    background: #007bff; /* Modern Blue Navbar */
+    padding: 15px 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.2rem;
+    color: white;
+    margin-right: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff !important;
+    background-color: white;
+    border-radius: 5px;
+    padding: 8px 15px;
+}
+
+/* ✅ Dashboard Layout */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+.dashboard-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #222;
+}
+.left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+}
+
+/* ✅ Card Container */
+.labs-list {
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    gap: 30px;
+    padding: 80px;
+}
+
+/* ✅ Individual Lab Card */
+.lab-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    text-align: left;
+}
+
+.lab-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ✅ Lab Info */
+.lab-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.lab-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #007bff;
+}
+
+.lab-details {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* ✅ Progress Button */
+.progress-button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    width: 100%;
+}
+
+.progress-button:hover {
+    background: #218838;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    .labs-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lab-card {
+        width: 90%;
+    }
+
+    .dashboard-title {
+        font-size: 1.8rem;
+    }
+}

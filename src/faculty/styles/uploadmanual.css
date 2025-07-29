@@ -1,0 +1,131 @@
+.upload-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+  }
+  
+  .upload-form-container {
+    width: 50%;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .upload-form-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .toggle-group {
+    margin-bottom: 15px;
+  }
+  
+  .toggle-options {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .toggle-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: #f5f5f5;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .toggle-btn.active {
+    background: #007bff;
+    color: white;
+  }
+  
+  .file-upload {
+    text-align: center;
+  }
+  
+  .file-upload-box {
+    padding: 5px;
+    border: 2px dashed #007bff;
+    text-align: center;
+    cursor: pointer;
+    gap: 10px;
+  }
+  
+  .upload-icon {
+    font-size: 30px;
+    color: #007bff;
+  }
+  
+  .upload-save-button {
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .upload-save-button:hover {
+    background: #218838;
+  }
+  
+  .experiment-list-container {
+    width: 50%;
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .experiment-list-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .list-icon {
+    font-size: 22px;
+  }
+  
+  .experiment-list {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+  
+  .experiment-card {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+  }
+  

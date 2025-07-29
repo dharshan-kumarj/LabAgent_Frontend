@@ -1,0 +1,121 @@
+/* ✅ Full-screen Login Container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: auto;
+    position: relative;
+    background: url("../../../public/assets/image/loginbg.jpeg") no-repeat center center/cover;
+    overflow: hidden;
+}
+
+/* ✅ Background Overlay for Darkened Effect */
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark Overlay */
+    backdrop-filter: blur(8px);
+    z-index: -1;
+}
+
+/* ✅ Login Card (Glassmorphism Effect) */
+.login-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ✅ Title Styling */
+.login-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* ✅ Input Box Styling */
+.input-box {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid transparent;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    font-size: 1rem;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* ✅ Placeholder Styling */
+.input-box::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.input-box:focus {
+    border: 2px solid #90ee90;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ✅ Password Input Container */
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+/* ✅ Password Input Field */
+.password-input {
+    padding-right: 40px; /* Space for Eye Icon */
+}
+
+/* ✅ Eye Icon */
+.eye-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.eye-icon:hover {
+    color: #90ee90;
+}
+
+/* ✅ Submit Button */
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #32cd32, #228b22);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+/* ✅ Submit Button Hover Effect */
+.submit-button:hover {
+    background: linear-gradient(135deg, #228b22, #32cd32);
+    transform: scale(1.05);
+}
